@@ -1,113 +1,193 @@
 import Image from "next/image";
-
+import PageTitle from "../components/shared/PageTitle";
+import Link from "next/link";
+const avatar = "/asset/images/avatar.png";
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:size-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <div className="pt-10">
+      <div>
+        <Image
+          src={avatar}
+          width={100}
+          height={100}
+          alt="avatar"
+          className="rounded-full"
+        />
+        <PageTitle
+          title="Nam Hoang Ngoc Thanh"
+          description={
+            <>
+              Hi there, I'm a software engineer who coding website in Ho Chi
+              Minh City, Viet Nam
+              <br />
+              Welcome to my world !!
+            </>
+          }
+          className="mt-[20px]"
+        />
+
+        <Dashboard />
+
+        <div className="w-full flex justify-center mt-[20px]">
+          <Link
+            href={"/about"}
+            className="border-[1px] text-center px-[30px] py-[10px] rounded-[5px] bg-white text-gray-900 text-[12px] hover:bg-white hover:text-gray-600"
           >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+            ABOUT ME
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+const Dashboard = () => {
+  const instagram =
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/2048px-Instagram_logo_2016.svg.png";
+  const linkedin = "/asset/images/tech/LinkedIn_icon.svg.png";
+  const laravel = "/asset/images/tech/1969px-Laravel.svg.png";
+  const react = "/asset/images/tech/React-icon.svg.png";
+  const docker = "/asset/images/tech/Docker-Logo.png";
+  const linux = "/asset/images/tech/Tux.svg.png";
+  const github = "/asset/images/tech/github.png";
+  const listTech = [
+    {
+      image: laravel
+    },
+    {
+      image: react
+    },
+    {
+      image: docker
+    },
+    {
+      image: linux
+    }
+  ]
+  return (
+    <div className="mt-5 sm:mt-20 flex flex-col sm:flex-wrap sm:flex-row">
+      <div className="w-full sm:w-[30%] p-5">
+        <div className=" h-[150px] border-[1px] rounded-[15px] bg-gray-100">
+          <div className="p-[15px]">
+            <div className="mb-[30px] flex items-center gap-x-[10px]">
+              <Image src={instagram} width={40} height={40} alt="Instagram" />
+              <p className="text-[10px] text-gray-400">@hnt.namm</p>
+            </div>
+            <a
+              href="https://www.instagram.com/hnt.namm/"
+              target="blank"
+              className="text-[14px] text-white py-[5px] px-[10px] bg-gray-400 rounded-[15px] hover:bg-white hover:text-gray-400 hover:border-[1px]"
+            >
+              Follow
+            </a>
+          </div>
         </div>
       </div>
 
-      <div className="relative z-[-1] flex place-items-center before:absolute before:h-[300px] before:w-full before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 sm:before:w-[480px] sm:after:w-[240px] before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
+      <div className="w-full sm:w-[70%] p-5">
+        <div className=" h-[150px] border-[1px] rounded-[15px] bg-gray-100">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.449434866633!2d106.62456367448183!3d10.853380789300067!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752a20cc3645ff%3A0xb6999d6234a95087!2zSE9TRSBCdWlsZGluZywgUXVhbmcgVHJ1bmcsIFNvZnR3YXJlIENpdHksIFF14bqtbiAxMiwgVGjDoG5oIHBo4buRIEjhu5MgQ2jDrSBNaW5oLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1713275201544!5m2!1svi!2s"
+            style={{ width: "100%", height: "100%", borderRadius: "15px" }}
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          />
+        </div>
       </div>
 
-      <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
+      <div className="w-full sm:w-[70%] p-5">
+        <div className="flex h-[150px] border-[1px] rounded-[15px] bg-gray-100">
+          <div className="w-[40%] p-[10px] flex flex-col justify-center items-center">
+            <Image src={linkedin} width={50} height={50} alt="LinkedIn" />
+            <div className="mt-[20px]">
+              <a
+                href="https://www.linkedin.com/in/nam-thanh-190ba427b/"
+                target="blank"
+                className="text-[14px] text-white py-[5px] px-[10px] bg-gray-400 rounded-[15px] hover:bg-white hover:text-gray-400 hover:border-[1px]"
+              >
+                Connect
+              </a>
+            </div>
+          </div>
+          <div className="w-[60%] flex">
+            <div className="w-full flex flex-wrap justify-center items-center">
+              {
+                listTech.map((item, index) => (
+                  <div key={index} className="w-[45%] h-[65px] border-[1px] rounded-[10px] m-1 flex justify-center items-center bg-white">
+                    <Image src={item.image} width={45} height={50} alt="LinkedIn"/>
+                  </div>
+                ))
+              }
+            </div>
+          </div>
+        </div>
+      </div>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-balance text-sm opacity-50">
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
+      <div className="w-full sm:w-[30%] p-5">
+        <a href="https://github.com/hntnam3094?tab=repositories" target="blank">
+        <div className=" h-[150px] border-[1px] rounded-[15px] bg-gray-100 flex justify-center items-center">
+          <Image src={github} width={40} height={40} alt="Github" />
+        </div>
         </a>
       </div>
-    </main>
+    </div>
   );
-}
+};
+
+const TechStack = () => {
+  const teckStack = [
+    {
+      title: "Backend",
+      children: [
+        {
+          title: "PHP",
+        },
+        {
+          title: "Ruby",
+        },
+        {
+          title: "NodeJs",
+        },
+      ],
+    },
+    {
+      title: "Frontend",
+      children: [
+        {
+          title: "HTML",
+        },
+        {
+          title: "CSS",
+        },
+        {
+          title: "ReactJS",
+        },
+        {
+          title: "VueJS",
+        },
+      ],
+    },
+    {
+      title: "DevOps",
+      children: [
+        {
+          title: "LINUX",
+        },
+        {
+          title: "Docker",
+        },
+        {
+          title: "Gitlab",
+        },
+      ],
+    },
+  ];
+
+  return (
+    <div className="flex justify-between items-center p-3">
+      {teckStack.map((item, index) => (
+        <div key={index}>{item.title}</div>
+      ))}
+    </div>
+  );
+};
