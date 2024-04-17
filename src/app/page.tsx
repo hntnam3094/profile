@@ -17,7 +17,7 @@ export default function Home() {
           title="Nam Hoang Ngoc Thanh"
           description={
             <>
-              Hi there, I'm a software engineer who coding website in Ho Chi
+              Hi there, I`m a software engineer who coding website in Ho Chi
               Minh City, Viet Nam
               <br />
               Welcome to my world !!

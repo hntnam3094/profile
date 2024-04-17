@@ -118,12 +118,12 @@ const Infomation = () => {
     <section className="flex w-full mt-20 text-[15px] font-light">
       <div className="w-[30%] text-gray-400">About</div>
       <div className="w-[70%] text-gray-600">
-        Hi, I'm Nam, born in Binh Phuoc, Viet Nam and currently living Ho Chi
+        Hi, I`m Nam, born in Binh Phuoc, Viet Nam and currently living Ho Chi
         Minh, Viet Nam. I have been coding 4 years. As software engineer, I
         specialize in full-stack web development.
         <br />
         <br />
-        When I'm not at my desk i am probably running, playing badminton or
+        When I`m not at my desk i am probably running, playing badminton or
         computer game
       </div>
     </section>
