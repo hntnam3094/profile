@@ -70,7 +70,7 @@ const Dashboard = () => {
         <div className=" h-[150px] border-[1px] rounded-[15px] bg-gray-100">
           <div className="p-[15px]">
             <div className="mb-[30px] flex items-center gap-x-[10px]">
-              <Image src={instagram} width={40} height={40} alt="Instagram" />
+              <Image src={instagram} width={40} height={40} alt="Instagram" unoptimized/>
               <p className="text-[10px] text-gray-400">@hnt.namm</p>
             </div>
             <a

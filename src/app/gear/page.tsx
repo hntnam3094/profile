@@ -130,7 +130,7 @@ const GearInfomation = ({ listGear }: Props) => {
       {listGear.map((item, index) => (
         <div key={index} className="flex justify-center w-full sm:w-[50%] p-[5px] items-center gap-x-[10px]">
           <div className="border-[1px] w-[70px] h-[70px] rounded-[15px]">
-            <Image src={item.image} width={70} height={70} alt={item.title} className="rounded-[15px] object-cover" style={{height: '68px'}}/>
+            <Image src={item.image} width={70} height={70} alt={item.title} className="rounded-[15px] object-cover" style={{height: '68px'}} unoptimized/>
           </div>
           <div className="min-w-[180px] max-w-[180px] w-[60%]">
             <h3 className="text-[14px] text-gray-600">{item.title}</h3>
