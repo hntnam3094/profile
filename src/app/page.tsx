@@ -126,7 +126,7 @@ const Dashboard = () => {
       <div className="w-full sm:w-[30%] p-5">
         <a href="https://github.com/hntnam3094?tab=repositories" target="blank">
         <div className=" h-[150px] border-[1px] rounded-[15px] bg-gray-100 flex justify-center items-center">
-          <Image src={github} width={40} height={40} alt="Github" />
+          <Image src={github} width={40} height={40} alt="Github" unoptimized/>
         </div>
         </a>
       </div>
