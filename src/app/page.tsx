@@ -114,7 +114,7 @@ const Dashboard = () => {
               {
                 listTech.map((item, index) => (
                   <div key={index} className="w-[40%] sm:w-[45%] h-[55px] sm:h-[65px] border-[1px] rounded-[10px] m-1 flex justify-center items-center bg-white">
-                    <Image src={item.image} width={45} height={50} alt="LinkedIn"/>
+                    <Image src={item.image} width={45} height={50} alt="LinkedIn" unoptimized/>
                   </div>
                 ))
               }
