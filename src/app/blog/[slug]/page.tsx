@@ -12,7 +12,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
   return (
     <>
       <HeaderBlog data={dataBlog?.data} />
-      <ContentBlog content={dataBlog?.data?.content} />
+      {/* <ContentBlog content={dataBlog?.data?.content} /> */}
       <FooterBlog />
     </>
   );
