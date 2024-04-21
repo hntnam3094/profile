@@ -1,6 +1,8 @@
 import Image from "next/image";
 import PageTitle from "../components/shared/PageTitle";
 import Link from "next/link";
+import { useDataApi } from "@/components/shared/modules/api/server";
+import DisplayBlogs from "./blog/_components/DisplayBlogs";
 const avatar = "/asset/images/avatar.png";
 export default function Home() {
   return (
@@ -36,9 +38,24 @@ export default function Home() {
             ABOUT ME
           </Link>
         </div>
+
+        <div className="mt-10">
+          <Blogs />
+        </div>
       </div>
     </div>
   );
+}
+
+
+const Blogs = async () => {
+  const dataBlog = await useDataApi("/blog");
+  return (
+    <div className="mt-20">
+      <p>Lastest blogs</p>
+      <DisplayBlogs listData={dataBlog?.data} />
+    </div>
+  )
 }
 
 const Dashboard = () => {
