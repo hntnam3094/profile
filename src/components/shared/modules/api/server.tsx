@@ -1,4 +1,4 @@
-export async function useDataApi (
+export async function dispatchDataApi (
   path: string
 ) {
   const response = await fetch(process.env.API_URL + '/api' + path);

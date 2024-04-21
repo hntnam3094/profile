@@ -1,7 +1,7 @@
 import Image from "next/image";
 import PageTitle from "../components/shared/PageTitle";
 import Link from "next/link";
-import { useDataApi } from "@/components/shared/modules/api/server";
+import { dispatchDataApi } from "@/components/shared/modules/api/server";
 import DisplayBlogs from "./blog/_components/DisplayBlogs";
 const avatar = "/asset/images/avatar.png";
 export default function Home() {
@@ -49,7 +49,7 @@ export default function Home() {
 
 
 const Blogs = async () => {
-  const dataBlog = await useDataApi("/blog");
+  const dataBlog = await dispatchDataApi("/blog");
   return (
     <div className="mt-20">
       <p>Lastest blogs</p>

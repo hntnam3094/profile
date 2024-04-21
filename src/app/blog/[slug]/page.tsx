@@ -1,11 +1,19 @@
 import PageTitle from "@/components/shared/PageTitle";
-import { useDataApi } from "@/components/shared/modules/api/server";
+import { dispatchDataApi } from "@/components/shared/modules/api/server";
 import {
   dateTimeFormat,
   handlerImageUrl,
 } from "@/components/shared/modules/helper/utils";
 import Image from "next/image";
 import DisplayBlogs from "../_components/DisplayBlogs";
+
+export async function generateStaticParams() {
+  const posts = await dispatchDataApi('/blog')
+ 
+  return posts?.data?.map((post: BlogItemType) => ({
+    slug: post.slug,
+  }))
+}
 
 export default async function Page({ params }: { params: { slug: string } }) {
   return (
@@ -18,7 +26,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
 }
 
 async function FooterBlog () {
-  const dataBlog = await useDataApi("/blog");
+  const dataBlog = await dispatchDataApi("/blog");
   return (
     <div className="mt-20">
       <p>Lastest blogs</p>
@@ -28,7 +36,7 @@ async function FooterBlog () {
 }
 
 async function ContentBlog({ slug }: { slug: string }) {
-  const dataBlog = await useDataApi(`/blog/${slug}`);
+  const dataBlog = await dispatchDataApi(`/blog/${slug}`);
   return (
     <div className="w-full mt-10">
       {dataBlog?.data?.content && <div dangerouslySetInnerHTML={{ __html: dataBlog?.data?.content }} />}
@@ -37,7 +45,7 @@ async function ContentBlog({ slug }: { slug: string }) {
 }
 
 async function HeaderBlog({ slug }: { slug: string }) {
-  const dataBlog = await useDataApi(`/blog/${slug}`);
+  const dataBlog = await dispatchDataApi(`/blog/${slug}`);
   return (
     <>
       <div className="w-full mt-10">
