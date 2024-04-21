@@ -8,11 +8,10 @@ import Image from "next/image";
 import DisplayBlogs from "../_components/DisplayBlogs";
 
 export default async function Page({ params }: { params: { slug: string } }) {
-  const dataBlog = await useDataApi("/blog/" + params.slug);
   return (
     <>
-      <HeaderBlog data={dataBlog?.data} />
-      {/* <ContentBlog content={dataBlog?.data?.content} /> */}
+      <HeaderBlog slug={params?.slug} />
+      <ContentBlog slug={params?.slug} />
       <FooterBlog />
     </>
   );
@@ -28,24 +27,26 @@ async function FooterBlog () {
   )
 }
 
-function ContentBlog({ content }: { content: string }) {
+async function ContentBlog({ slug }: { slug: string }) {
+  const dataBlog = await useDataApi(`/blog/${slug}`);
   return (
     <div className="w-full mt-10">
-      {content && <div dangerouslySetInnerHTML={{ __html: content }} />}
+      {dataBlog?.data?.content && <div dangerouslySetInnerHTML={{ __html: dataBlog?.data?.content }} />}
     </div>
   );
 }
 
-function HeaderBlog({ data }: { data: BlogItemType }) {
+async function HeaderBlog({ slug }: { slug: string }) {
+  const dataBlog = await useDataApi(`/blog/${slug}`);
   return (
     <>
       <div className="w-full mt-10">
-        {data?.banner && (
+        {dataBlog?.data?.banner && (
           <Image
-            src={handlerImageUrl(data?.banner)}
+            src={handlerImageUrl(dataBlog?.data?.banner)}
             width={800}
             height={300}
-            alt={data?.name}
+            alt={dataBlog?.data?.name}
             className="w-full h-[200px] object-cover"
             unoptimized
           />
@@ -53,9 +54,9 @@ function HeaderBlog({ data }: { data: BlogItemType }) {
       </div>
 
       <div className="mt-10 w-full">
-        <PageTitle title={data?.name} description={data?.description} />
+        <PageTitle title={dataBlog?.data?.name} description={dataBlog?.data?.description} />
         <p className="text-[12px] text-gray-600">
-          {dateTimeFormat(data?.created_at)}
+          {dateTimeFormat(dataBlog?.data?.created_at)}
         </p>
       </div>
     </>
