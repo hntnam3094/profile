@@ -27,6 +27,7 @@ export default function DisplayBlogs({ listData }: { listData: BlogItemType[] })
               height={100}
               alt={item?.name}
               className="border-1px bg-gray-100 w-[100px] h-[100px] rounded-[10px] object-cover"
+              unoptimized
             />
           </div>
         </div>

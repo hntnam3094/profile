@@ -47,6 +47,7 @@ function HeaderBlog({ data }: { data: BlogItemType }) {
             height={300}
             alt={data?.name}
             className="w-full h-[200px] object-cover"
+            unoptimized
           />
         )}
       </div>

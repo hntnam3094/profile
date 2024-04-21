@@ -8,5 +8,7 @@ interface imageHandlerType {
 }
 export function ImageHanlder({ url, width, height, alt }: imageHandlerType) {
   const imageUrl = process.env.API_URL + url;
-  return <Image src={imageUrl} width={width} height={height} alt={alt} />;
+  return (
+    <Image src={imageUrl} width={width} height={height} alt={alt} unoptimized />
+  );
 }
