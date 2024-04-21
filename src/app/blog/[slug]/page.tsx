@@ -7,13 +7,13 @@ import {
 import Image from "next/image";
 import DisplayBlogs from "../_components/DisplayBlogs";
 
-export async function generateStaticParams() {
-  const posts = await dispatchDataApi('/blog')
+// export async function generateStaticParams() {
+//   const posts = await dispatchDataApi('/blog')
  
-  return posts?.data?.map((post: BlogItemType) => ({
-    slug: post.slug,
-  }))
-}
+//   return posts?.data?.map((post: BlogItemType) => ({
+//     slug: post.slug,
+//   }))
+// }
 
 export default async function Page({ params }: { params: { slug: string } }) {
   return (
