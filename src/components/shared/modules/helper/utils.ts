@@ -6,14 +6,14 @@ export function dateTimeFormat (dateTime: string, format: string = 'll') {
 
 export function handlerImageUrl (url: string) {
   if (url) {
-    return process.env.API_URL + url
+    return process.env.NEXT_PUBLIC_API_URL + url
   }
   return ''
 }
 
 export function handlerWebUrl (url: string) {
   if (url) {
-    return process.env.WEB_URL + url
+    return process.env.NEXT_PUBLIC_WEB_URL + url
   }
   return ''
 }

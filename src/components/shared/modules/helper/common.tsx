@@ -7,7 +7,7 @@ interface imageHandlerType {
   alt: string;
 }
 export function ImageHanlder({ url, width, height, alt }: imageHandlerType) {
-  const imageUrl = process.env.API_URL + url;
+  const imageUrl = process.env.NEXT_PUBLIC_API_URL + url;
   return (
     <Image src={imageUrl} width={width} height={height} alt={alt} unoptimized />
   );
