@@ -13,7 +13,7 @@ export default function Header () {
           {/* <Link href="/project" className="hover:text-gray-600"><li>Project</li></Link> */}
       </ul>
       <div className="w-[10%] text-[10px] text-gray-600">
-        <Link href={`#`}>GO</Link>
+        {/* <Link href={`#`}>GO</Link> */}
       </div>
     </div>
   )

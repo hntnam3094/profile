@@ -4,6 +4,7 @@ import { ArrowIcon, MailIcon } from "@/assets/icon";
 import { InstagramIcon } from "@/assets/icon/InstagramIcon";
 import { LinkedInIcon } from "@/assets/icon/LinkedInICon";
 import { GitHubIcon } from "@/assets/icon/GitHubIcon";
+import { url } from "inspector";
 
 const About = () => {
   return (
@@ -22,7 +23,7 @@ const Images = () => {
   const image2 = "/asset/images/image_2.jpg";
   const image3 = "/asset/images/image_3.jpg";
   const image4 = "/asset/images/image_4.jpg";
-
+  const backBg = "/asset/images/photopaper.png"
   const listImage = [
     {
       image: image1,
@@ -80,7 +81,7 @@ const Images = () => {
                 width: "100%",
                 height: "100%",
                 backfaceVisibility: "hidden",
-                backgroundColor: "#bbb",
+                backgroundImage: "#bbb",
                 color: "black",
                 transform: "rotateY(0deg)",
               }}
@@ -100,7 +101,7 @@ const Images = () => {
                 width: "100%",
                 height: "100%",
                 backfaceVisibility: "hidden",
-                backgroundColor: "#eab676",
+                backgroundImage: `url(${backBg})` ,
                 transform: "rotateY(180deg)",
               }}
             >

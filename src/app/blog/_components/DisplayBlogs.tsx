@@ -1,3 +1,5 @@
+'use client';
+
 import {
   dateTimeFormat,
   handlerImageUrl,
@@ -5,12 +7,40 @@ import {
 } from "@/components/shared/modules/helper/utils";
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
+
+
+const useMousePosition = () => {
+  const [
+    mousePosition,
+    setMousePosition
+  ] = useState({
+    x: 0, y: 0
+  })
+
+  useEffect(() => {
+    const updateMousePostition = (ev: any) => {
+      setMousePosition({
+        x: ev.clientX, y: ev.clientY
+      })
+    }
+
+    window.addEventListener('mouseover', updateMousePostition)
+
+    return () => {
+      window.removeEventListener('mouseover', updateMousePostition)
+    }
+  })
+
+  return mousePosition
+}
 
 export default function DisplayBlogs({ listData }: { listData: BlogItemType[] }) {
+  const mousePosition = useMousePosition();
   return (
     <div className="group-hoverrize">
       {listData.length > 0 && listData.map((item: BlogItemType, index: number) => (
-        <div key={index} className="hoverrize relative group">
+        <div key={index} className="hoverrize group">
           <Link
             href={handlerWebUrl(`/blog/${item?.slug}`)}
             className="hoverrize-item text-[14px] text-gray-600"
@@ -20,7 +50,7 @@ export default function DisplayBlogs({ listData }: { listData: BlogItemType[] })
               <p>{item?.name}</p>
             </div>
           </Link>
-          <div className="absolute hidden group-hover:block top-[-120px] left-[100px]">
+          <div className="hidden fixed group-hover:block" style={{top: (mousePosition.y - 100) + 'px', left: (mousePosition.x - 100) + 'px'}}>
             <Image
               src={handlerImageUrl(item?.banner)}
               width={100}
